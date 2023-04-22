@@ -75,6 +75,76 @@ public static double meanOfSampleMeans(ArrayList<Double> sampleMeans){
 
     }
 
+    public static Double probabilityOfEvent(ArrayList<Double> sampleMeans, Double nkMean, Double nkStdDev, Double Zj){
+        ArrayList<Double> list = new ArrayList<>();
+        for (int i = 0; i < sampleMeans.size(); i++) {
+            double result = (sampleMeans.get(i) - nkMean)/nkStdDev;
+            if (Zj == -1.4) {
+                if (result <= Zj) {
+                    list.add(result);
+                }
+            }
+            else if (Zj == -1.0) {
+                if (result <= Zj) {
+                    list.add(result);
+                }
+            }
+            else if (Zj == -0.5) {
+                if (result <= Zj) {
+                    list.add(result);
+                }
+            }
+            else if (Zj == 0.0) {
+                if (result <= Zj) {
+                    list.add(result);
+                }
+            }
+            else if (Zj == 0.5) {
+                if (result <= Zj) {
+                    list.add(result);
+                }
+            }
+            else if (Zj == 1.0) {
+                if (result <= Zj) {
+                    list.add(result);
+                }
+            }
+            else if (Zj == 1.4) {
+                if (result <= Zj) {
+                    list.add(result);
+                }
+            }
+        }
+        Double probability = (double) list.size()/sampleMeans.size();
+        return probability;
+    }
+
+    public static Double getMAD(Double probability, Double Zj) {
+        Double MAD = 0.0;
+        if (Zj == -1.4) {
+            MAD = Math.abs(probability - 0.0808);
+            return MAD;
+        } else if (Zj == -1.0) {
+            MAD = Math.abs(probability - 0.1587);
+            return MAD;
+        } else if (Zj == -0.5) {
+            MAD = Math.abs(probability - 0.3085);
+            return MAD;
+        } else if (Zj == 0.0) {
+            MAD = Math.abs(probability - 0.500);
+            return MAD;
+        } else if (Zj == 0.5) {
+            MAD = Math.abs(probability - 0.6915);
+            return MAD;
+        } else if (Zj == 1.0) {
+            MAD = Math.abs(probability - 0.8413);
+            return MAD;
+        } else if (Zj == 1.4) {
+            MAD = Math.abs(probability - 0.9192);
+            return MAD;
+        }
+        return MAD;
+    }
 
 //    double result = sumOfSquaredSamples - meanSquared;
 //
@@ -108,14 +178,27 @@ public static double meanOfSampleMeans(ArrayList<Double> sampleMeans){
         double EightyOne550Mean = meanOfSampleMeans(EightyOne550);
         double EightyOne550Variance = varianceOfSampleMeans(EightyOne550);
 
-
+//        System.out.println(probabilityOfEvent(EightyOne550, EightyOne550Mean, Math.sqrt(EightyOne550Variance), -1.4));
+//        System.out.println(probabilityOfEvent(EightyOne550, EightyOne550Mean, Math.sqrt(EightyOne550Variance), -1.0));
+//        System.out.println(probabilityOfEvent(EightyOne550, EightyOne550Mean, Math.sqrt(EightyOne550Variance), -0.5));
+//        System.out.println(probabilityOfEvent(EightyOne550, EightyOne550Mean, Math.sqrt(EightyOne550Variance), 0.0));
+//        System.out.println(probabilityOfEvent(EightyOne550, EightyOne550Mean, Math.sqrt(EightyOne550Variance), 0.5));
+//        System.out.println(probabilityOfEvent(EightyOne550, EightyOne550Mean, Math.sqrt(EightyOne550Variance), 1.0));
+//        System.out.println(probabilityOfEvent(EightyOne550, EightyOne550Mean, Math.sqrt(EightyOne550Variance), 1.4));
+        System.out.println(getMAD(0.089090909, -1.4));
+        System.out.println(getMAD(0.17090909, -1.0));
+        System.out.println(getMAD(0.4, -0.5));
+        System.out.println(getMAD(0.48, 0.0));
+        System.out.println(getMAD(0.6763636, 0.5));
+        System.out.println(getMAD(0.80, 1.0));
+        System.out.println(getMAD(0.92, 1.4));
 
         //testing
 
-        System.out.println(Math.sqrt(threeFiveVariance));
-        System.out.println(Math.sqrt(nineTwentyFiveVariance));
-        System.out.println(Math.sqrt(twentySeven110Variance));
-        System.out.println(Math.sqrt(EightyOne550Variance));
+//        System.out.println(Math.sqrt(threeFiveVariance));
+//        System.out.println(Math.sqrt(nineTwentyFiveVariance));
+//        System.out.println(Math.sqrt(twentySeven110Variance));
+//        System.out.println(Math.sqrt(EightyOne550Variance));
 
 
     }
