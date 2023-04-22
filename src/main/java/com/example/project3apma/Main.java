@@ -112,8 +112,10 @@ public static double meanOfSampleMeans(ArrayList<Double> sampleMeans){
 
         //testing
 
-        System.out.println(threeFiveVariance + " is the variance of n=3,K=5");
-        System.out.println(EightyOne550Variance+ " is the variance of n=81,K=550");
+        System.out.println(Math.sqrt(threeFiveVariance));
+        System.out.println(Math.sqrt(nineTwentyFiveVariance));
+        System.out.println(Math.sqrt(twentySeven110Variance));
+        System.out.println(Math.sqrt(EightyOne550Variance));
 
 
     }
